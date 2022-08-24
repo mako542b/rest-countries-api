@@ -5,6 +5,7 @@ const SortElement = ({ setSort, sort }) => {
 
     const setSortClick = e => {
         let sortVal = e.target.value
+        localStorage.setItem('sort', sortVal)
         setSort(sortVal)
     }
 

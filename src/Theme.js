@@ -6,7 +6,7 @@ const themeStyles = {
         backgroundElements: '#2b3945',
         backgroundBody: '#202c37',
         color: '#ffffff',
-        moonImg: './moon-light.svg'
+        moonImg: '/moon-light.svg'
     },
     light: {
         backgroundElements: '#ffffff',

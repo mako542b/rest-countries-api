@@ -30,17 +30,17 @@ const Details = ({ detailedCountry, countriesInfo, setDetailedCountry, setDetail
                             <p className="f-s-16"><span className="f-w-600">Native name: </span>{detailedCountry?.name?.nativeName && Object.values(detailedCountry.name.nativeName).map(name=>`${name.official}; `)}</p>
                             <p className="f-s-16"><span className="f-w-600">Population: </span>{detailedCountry.population && addComas(detailedCountry.population)}</p>
                             <p className="f-s-16"><span className="f-w-600">Region: </span>{detailedCountry.region}</p>
-                            <p className="f-s-16"><span className="f-w-600">sub-Region: </span>{detailedCountry.subregion}</p>
+                            <p className="f-s-16"><span className="f-w-600">Sub-Region: </span>{detailedCountry.subregion}</p>
                             <p className="f-s-16"><span className="f-w-600">Capital: </span>{detailedCountry.capital?.[0]}</p>
                         </div>
                         <div className="col-2">
                             <p className="f-s-16"><span className="f-w-600">Top level domain: </span>.bre</p>
-                            <p className="f-s-16"><span className="f-w-600">currencies: </span>{detailedCountry.currencies && Object.values(detailedCountry.currencies).map(val => `${val.name} `)}</p>
-                            <p className="f-s-16"><span className="f-w-600">languages: </span>{detailedCountry.languages && Object.values(detailedCountry.languages).map(language => `${language} `)}</p>
+                            <p className="f-s-16"><span className="f-w-600">Currencies: </span>{detailedCountry.currencies && Object.values(detailedCountry.currencies).map(val => `${val.name}; `)}</p>
+                            <p className="f-s-16"><span className="f-w-600">Languages: </span>{detailedCountry.languages && Object.values(detailedCountry.languages).map(language => `${language}; `)}</p>
                         </div>
                     </div>
                     <div className="border-countries">
-                        <p>Border countries</p>
+                        <p>Border countries:</p>
                         <div className="border-buttons">
                             {detailedCountry?.borders?.map(neighbour => (
                                 <CheckNeighbour neighbour={findNeighbour(neighbour)} key={neighbour} setDetailedCountry={setDetailedCountry} theme={theme}/>

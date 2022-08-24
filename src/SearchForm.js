@@ -16,12 +16,14 @@ const SearchForm = ({
 
     const setRegionClick = (e) => {
         let val = e.target.value
+        localStorage.setItem('region', val)
         setRegion(val)
         return
     }
 
     const setCountryClick = (e) => {
         let val = e.target.value
+        localStorage.setItem('country', val)
         setCountrySearch(val)
     }
 

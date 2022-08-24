@@ -8,6 +8,10 @@ import { ThemeContext } from './Theme'
 
 // import SortElement from './SortElement'
 
+/* 
+for gh-pages this:"homepage": "http://mako542b.github.io/rest-countries-api" should go to package.json,
+but for localhost, images with source of relative path doesn't work with this line
+*/
 
 function App() {
 
@@ -27,6 +31,12 @@ function App() {
     axios.get('https://restcountries.com/v3.1/all').then(res => {
       setIsLoading(false)
       setCountriesInfo(res.data)
+      let isRegion = localStorage.getItem('region')
+      if(isRegion) setRegion(isRegion)
+      let isCountry = localStorage.getItem('country')
+      if(isCountry) setCountrySearch(isCountry)
+      let isSort = localStorage.getItem('sort')
+      if(isSort) setSort(isSort)
     })
   },[])
 
