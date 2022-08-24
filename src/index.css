@@ -273,10 +273,6 @@ body {
   max-height: 1.5rem;
 }
 
-svg {
-  fill:hsl(0, 0%, 100%);
-
-}
 
 .btn-container {
   display:flex;
