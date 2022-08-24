@@ -1,13 +1,392 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Commissioner:wght@400;500;700&family=Epilogue:wght@500;700&family=Fraunces:opsz,wght@9..144,700&family=Kumbh+Sans:wght@400;700&family=Montserrat:wght@500;700&family=Nunito+Sans:wght@300;600;800&family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap');
+
+:root {
+  --clr-dark-blue: hsl(209, 23%, 22%);
+  --bkg-very-dark-blue: hsl(207, 26%, 17%);
+  --clr-very-dark-blue: hsl(200, 15%, 8%);
+  --bkg-very-light-grey: hsl(0, 0%, 98%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-dark-grey: #858585; /*light-mode-inputs*/
+
+
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*, ::after, ::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding:0;
+  font:inherit;
+}
+
+.f-s-14 {
+  font-size: 0.875rem;
+}
+
+.f-s-16 {
+  font-size:1rem;
+}
+
+.f-w-300 {
+  font-weight: 300;
+}
+
+.f-w-600 {
+  font-weight: 600;
+}
+
+.f-w-800 {
+  font-weight: 800;
+}
+
+.line-15 {
+  line-height: 1.8;
+}
+
+.btn-reset {
+  border:none;
+  background:none;
+  /* width:100%; */
+}
+
+.clr-white {
+  color:white;
+}
+
+.bkg-elements {
+  background-color: var(--clr-dark-blue);
+}
+
+html {
+  min-height: 100%;
+}
+
+button {
+  transition: transform .2s ease-in-out;
+}
+
+button:hover {
+  cursor:pointer;
+  outline: 1px solid green;
+  transform:scale(1.2);
+}
+
+body {
+  /* min-height: 100vh; */
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.main-container {
+  min-height: 100vh;
+}
+
+.root {
+  min-height: 100%;
+}
+
+.header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 5rem;
+  padding-block: 1.25rem;
+  background-color: var(--clr-dark-blue);
+  color:var(--clr-white)
+}
+
+.mode-button {
+  border:none;
+  background: none;
+  color:inherit;
+  font-size:1rem;
+  font-weight:300;
+}
+
+.mode-button:hover,
+.country-button:hover {
+  outline: none;
+}
+
+.header h2 {
+  font-weight:600;
+  font-size:1.375rem;
+}
+
+.search-page {
+  padding-inline:4rem;
+  padding-bottom: 3rem;
+  min-height:100%;
+}
+
+.region-form {
+  display:flex;
+  justify-content: space-between;
+  padding-block:2.5rem;
+}
+
+.option-input {
+  border:none;
+  padding-block: .75rem;
+  padding-inline: 1rem;
+  border-radius: .325rem;
+  color: white;
+}
+
+.region-input {
+  border:none;
+  padding: .75rem;
+  color: white;
+  width: 25rem;
+  border-radius: .325rem;
+}
+
+
+.flag-image {
+  width:100%;
+  height: 9rem;
+  display:block;
+  object-fit:cover;
+
+}
+
+.country-card {
+  width:250px;
+  border-radius: .3rem;
+  overflow: hidden;
+  height:320px;
+  box-shadow: 0 0 15px 2px rgb(0, 0, 0, .3);
+}
+
+.box-shadow {
+  box-shadow: 0 0 15px 2px rgb(0, 0, 0, .3);
+}
+
+.cards-container {
+  justify-content: space-evenly;
+  display:flex;
+  gap:3rem;
+  flex-wrap: wrap;
+}
+
+.header-country {
+  padding-top:1rem;
+  padding-bottom:.5rem;
+  line-height: 1.2;
+
+}
+
+.brief-info {
+  padding-inline:1.5rem;
+  height: 200px;
+  text-align: left;
+}
+
+.image-container {
+  height:fit-content;
+  width:100%;
+  position:relative;
+}
+
+
+.image-container::after {
+  content:'';
+  position: absolute;
+  bottom:-2px;
+  inset-inline: 0;
+  height:2px;
+  background-color: rgb(0, 0, 0, .3);
+
+}
+
+.details {
+  padding-inline:2rem;
+}
+
+.main-details {
+  display:grid;
+  gap:5rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr 1fr;
+  padding-bottom:4rem;
+}
+
+.button-back {
+  margin-block:3rem;
+}
+
+.columns {
+  display:grid;
+  grid-auto-flow: column;
+  justify-content: left;
+  gap:2rem;
+}
+
+.details h2 {
+  font-weight: 600;
+  font-size: 1.625rem;
+  padding-block: 1.25rem;
+}
+
+.border-countries {
+  padding-top:4rem;
+  display:grid;
+  grid-auto-flow: column;
+  gap:1rem;
+  grid-auto-columns: auto 1fr;
+}
+
+.flag-big {
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+.border-buttons {
+  display:flex;
+  flex-wrap: wrap;
+  gap:1rem;
+
+}
+
+.btn-theme {
+  background-color: var(--clr-dark-blue);
+  color: var(--clr-white);
+  border-radius: .3rem;
+}
+
+.btn-padding {
+  padding: .3rem 1.8rem;
+}
+
+.border-button {
+  min-width:7rem;
+  padding-inline:1rem;
+  padding-block: .3rem;
+}
+
+.details-image {
+  align-self: center;
+}
+
+.svg {
+  display:inline;
+  max-height: 1.5rem;
+}
+
+svg {
+  fill:hsl(0, 0%, 100%);
+
+}
+
+.btn-container {
+  display:flex;
+  width:100%;
+  gap:.5rem;
+  align-items: center;
+  justify-content: right;
+}
+
+.mode-button {
+  width: 150px;
+  /* display:flex; */
+}
+
+@media screen and (max-width: 1000px) {
+  
+  .region-form {
+    flex-direction: column;
+    align-items: left;
+    gap: 1rem;
+  }
+
+  .option-input {
+    max-width: 12rem;
+  }
+
+  .region-input {
+    width:100%;
+    align-self:center;
+  }
+
+  .main-details {
+    gap:2rem;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    padding-bottom:4rem;
+    justify-content: center;
+  }
+
+  .flag-big {
+    height:auto;
+    display: block;
+  }
+
+  .columns {
+    grid-auto-flow: row;
+    gap:2rem;
+  }
+
+  .border-countries {
+    padding-top:3rem;
+    grid-auto-flow: row;
+    gap:1rem;
+    grid-auto-columns: auto;
+  }
+
+  .border-buttons {
+    justify-content: center;
+  }
+
+  .details {
+    padding-inline: 1.5rem;
+  }
+
+  .header {
+    padding-inline: 1.5rem;
+  }
+
+  .header h2 {
+    font-size:1rem;
+  }
+
+  .mode-button {
+    font-size: .825rem;
+    /* display:flex; */
+    /* flex-wrap: nowrap; */
+  }
+
+
+  
+}
+
+@media screen and (max-width: 700px) {
+
+  .country-card {
+    width: 100%;
+  }
+
+  .search-page {
+    padding-inline: 10%;
+  }
+
+  .btn-reset {
+    width:100%;
+  }
+
+  .flag-image {
+    height:auto;
+  }
+
+  .brief-info, .country-card {
+    height:fit-content;
+  }
+
+  .brief-info {
+    padding-bottom: 3rem;
+  }
+
+  button:hover {
+    transform: scale(1.15);
+  }
+
 }
