@@ -4,27 +4,24 @@ import {useContext} from 'react'
 
 
 const SearchForm = ({
-    region,
-    setRegion,
-    setCountrySearch,
-    countrySearch,
-    setSort,
-    sort
+    searchOptions,
+    setSearchOptions
 }) => {
 
-    
-
     const setRegionClick = (e) => {
-        let val = e.target.value
-        localStorage.setItem('region', val)
-        setRegion(val)
-        return
+
+        // localStorage.setItem('region', val)
+        setSearchOptions(prev => {
+            return {...prev, filterRegion: e.target.value}
+        })
     }
 
     const setCountryClick = (e) => {
-        let val = e.target.value
-        localStorage.setItem('country', val)
-        setCountrySearch(val)
+        // localStorage.setItem('country', val)
+
+        setSearchOptions(prev => {
+            return {...prev, filterCountry: e.target.value}
+        })
     }
 
     const [{theme}] = useContext(ThemeContext)
@@ -34,12 +31,12 @@ const SearchForm = ({
         <div>
 
             <form className="region-form" onSubmit={(e)=>e.preventDefault()}>
-                <input type="text" style={{backgroundColor: theme.backgroundElements, color:theme.color}} placeholder="search for a country..." className="region-input | bkg-elements box-shadow" onChange={setCountryClick} value={countrySearch}></input>
-        <SortElement setSort={setSort} sort={sort}/>
-                <select className="option-input | bkg-elements f-w-300 box-shadow" style={{backgroundColor: theme.backgroundElements, color:theme.color}} name="region" id="region" defaultValue={region} onChange={setRegionClick}>
-                <option value="default" disabled hidden>
-                filter by region    
-                </option>
+                <input type="text" style={{backgroundColor: theme.backgroundElements, color:theme.color}} placeholder="search for a country..." className="region-input | bkg-elements box-shadow" onChange={setCountryClick} value={searchOptions.filterCountry}></input>
+                <SortElement setSearchOptions={setSearchOptions} searchOptions={searchOptions}/>
+                <select className="option-input | bkg-elements f-w-300 box-shadow" style={{backgroundColor: theme.backgroundElements, color:theme.color}} name="region" id="region" defaultValue={searchOptions.filterRegion} onChange={setRegionClick}>
+                    <option value="default" disabled hidden>
+                    filter by region    
+                    </option>
                     <option value="all">All</option>
                     <option value="africa">Africa</option>
                     <option value="europe">Europe</option>

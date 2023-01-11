@@ -3,7 +3,7 @@ import {useContext} from 'react'
 import { ThemeContext } from './Theme'
 
 
-const SearchPage = ({ data, setDetailsPage, setDetailedCountry, setData }) => {
+const SearchPage = ({ data, setDetailsPage, setDetailedCountry }) => {
 
     const [{theme}] = useContext(ThemeContext)
 
