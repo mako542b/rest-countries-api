@@ -3,7 +3,7 @@ import {useContext} from 'react'
 
 const Header = () => {
 
-    const [{theme, isDark}, toggleTheme] = useContext(ThemeContext)
+    const {theme, toggleTheme, isDark} = useContext(ThemeContext)
     const mode = isDark ? 'Light mode' : 'Dark mode'
 
 

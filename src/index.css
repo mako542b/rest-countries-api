@@ -61,11 +61,12 @@ html {
   min-height: 100%;
 }
 
-button {
+.country-button {
   transition: transform .2s ease-in-out;
+  /* aspect-ratio: 1/2; */
 }
 
-button:hover {
+.country-button:hover {
   cursor:pointer;
   outline: 1px solid green;
   transform:scale(1.2);
@@ -143,17 +144,18 @@ body {
 
 .flag-image {
   width:100%;
-  height: 9rem;
+  height: 100%;
   display:block;
   object-fit:cover;
 
 }
 
 .country-card {
-  width:250px;
+  width:auto;
   border-radius: .3rem;
   overflow: hidden;
-  height:320px;
+  /* height:320px; */
+  max-width: 500px;
   box-shadow: 0 0 15px 2px rgb(0, 0, 0, .3);
 }
 
@@ -162,10 +164,9 @@ body {
 }
 
 .cards-container {
-  justify-content: space-evenly;
-  display:flex;
-  gap:3rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .header-country {
@@ -177,13 +178,14 @@ body {
 
 .brief-info {
   padding-inline:1.5rem;
-  height: 200px;
+  height: 180px;
   text-align: left;
 }
 
 .image-container {
-  height:fit-content;
+  /* height:50%; */
   width:100%;
+  aspect-ratio: 16/9;
   position:relative;
 }
 
@@ -347,42 +349,28 @@ body {
 
   .mode-button {
     font-size: .825rem;
-    /* display:flex; */
-    /* flex-wrap: nowrap; */
   }
 
 
   
 }
 
-@media screen and (max-width: 700px) {
-
-  .country-card {
-    width: 100%;
-  }
+@media (max-width: 700px) {
 
   .search-page {
-    padding-inline: 10%;
+    padding-inline: 1.5rem;
   }
 
-  .btn-reset {
-    width:100%;
-  }
-
-  .flag-image {
-    height:auto;
-  }
-
-  .brief-info, .country-card {
-    height:fit-content;
+  .brief-info {
+    /* height:fit-content; */
   }
 
   .brief-info {
     padding-bottom: 3rem;
   }
 
-  button:hover {
-    transform: scale(1.15);
+  .country-button:hover {
+    transform: none;
   }
 
 }

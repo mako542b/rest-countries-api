@@ -2,33 +2,33 @@ import { ThemeContext } from './Theme'
 import {useContext} from 'react'
 
 const SortElement = ({ searchOptions, setSearchOptions }) => {
+    
+    const {theme} = useContext(ThemeContext)
 
-    const setSortClick = e => {
-        // localStorage.setItem('sort', sortVal)
+    return(
+        <select className="option-input | bkg-elements f-w-300 box-shadow" name="sort" id="sort" defaultValue={{sortCriterium:searchOptions.sortCriterium, sortDirection:searchOptions.sortDirection}} onChange={setSortClick} style={{backgroundColor: theme.backgroundElements, color:theme.color}}>
+            <option value='name_+'>name, rising</option>
+            <option value='name_-'>name, sinking</option>
+            <option value='population_+'>population, rising</option>
+            <option value='population_-'>population, sinking</option>
+            <option value='neighbours_+'>neighbours, rising</option>
+            <option value='neighbours_-'>neighbours, sinking</option>
+        </select>
+    )
+
+
+    function setSortClick (e) {
+        console.log(e.target.value)
+        const optionValues = e.target.value.split('_')
         setSearchOptions(prev => {
             return {
                 ...prev, 
-                sortCriterium: e.target.value.criterium, 
-                sortDirection: e.target.value.direction 
+                sortCriterium: optionValues[0], 
+                sortDirection: optionValues[1] 
             }
         })
-        
     }
-
-    const [{theme}] = useContext(ThemeContext)
     
-    return(
-        <>
-            <select className="option-input | bkg-elements f-w-300 box-shadow" name="sort" id="sort" defaultValue={{sortCriterium:searchOptions.sortCriterium, sortDirection:searchOptions.sortDirection}} onChange={setSortClick} style={{backgroundColor: theme.backgroundElements, color:theme.color}}>
-                    <option value={{criterium: 'name', direction: '+'}}>name, rising</option>
-                    <option value={{criterium: 'name', direction: '-'}}>name, sinking</option>
-                    <option value={{criterium: 'population', direction: '+'}}>population, rising</option>
-                    <option value={{criterium: 'population', direction: '-'}}>population, sinking</option>
-                    <option value={{criterium: 'neighbours', direction: '+'}}>neighbours, rising</option>
-                    <option value={{criterium: 'neighbours', direction: '-'}}>neighbours, sinking</option>
-                </select>
-        </>
-    )
 }
 
 export default SortElement

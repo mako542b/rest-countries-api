@@ -5,7 +5,7 @@ import { ThemeContext } from './Theme'
 
 const SearchPage = ({ data, setDetailsPage, setDetailedCountry }) => {
 
-    const [{theme}] = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
 
     return(
            <div className='cards-container' style={{backgroundColor: theme.backgroundBody, color: theme.color}}>

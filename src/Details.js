@@ -1,4 +1,4 @@
-import addComas from './addComas'
+import { addComas } from './Utillity/functions'
 import CheckNeighbour from './CheckNeighbour'
 import { ThemeContext } from './Theme'
 import {useContext} from 'react'
@@ -8,7 +8,7 @@ const Details = ({ detailedCountry, countriesInfo, setDetailedCountry, setDetail
     const setDetailsPageClick = () => {
         setDetailsPage(false)
     }
-    const [{theme}] = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
 
 
     const findNeighbour = (neighbour) => {
@@ -37,6 +37,7 @@ const Details = ({ detailedCountry, countriesInfo, setDetailedCountry, setDetail
                             <p className="f-s-16"><span className="f-w-600">Top level domain: </span>.bre</p>
                             <p className="f-s-16"><span className="f-w-600">Currencies: </span>{detailedCountry.currencies && Object.values(detailedCountry.currencies).map(val => `${val.name}; `)}</p>
                             <p className="f-s-16"><span className="f-w-600">Languages: </span>{detailedCountry.languages && Object.values(detailedCountry.languages).map(language => `${language}; `)}</p>
+                            <p className="f-s-16"><span className="f-w-600">Neighobours: </span>{detailedCountry?.borders?.length}</p>
                         </div>
                     </div>
                     <div className="border-countries">
