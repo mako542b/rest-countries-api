@@ -11,8 +11,7 @@ const SearchForm = ({
     const {theme} = useContext(ThemeContext)
 
     return(
-        <div>
-
+        <div className='search-form'>
             <form className="region-form" onSubmit={(e)=>e.preventDefault()}>
                 <input 
                     type="text" 

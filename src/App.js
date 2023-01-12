@@ -25,7 +25,7 @@ function App() {
 
 
 
-    useEffect(()=>{
+    useEffect(() => {
       axios.get('https://restcountries.com/v3.1/all').then(res => {
         setIsLoading(false)
         setCountriesInfo(res.data)
@@ -58,7 +58,7 @@ function App() {
         <div>Loading...</div>
       )}
     </div>
-  );
+  )
 }
 
 export default App;
