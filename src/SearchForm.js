@@ -32,7 +32,8 @@ const SearchForm = ({
                         className="option-input | bkg-elements f-w-300 box-shadow" 
                         style={{backgroundColor: theme.backgroundElements, color:theme.color}} 
                         name="region" 
-                        id="region" 
+                        id="region"
+                        value={searchOptions.filterRegion}
                         onChange={(e) => setSearchOptions(prev =>  ({...prev, filterRegion: e.target.value}))}
                     >
                         <option value="default" disabled hidden>

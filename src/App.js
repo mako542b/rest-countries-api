@@ -6,6 +6,7 @@ import SearchForm from './SearchForm'
 import Details from './Details'
 import { ThemeContext } from './Theme'
 import { processData } from './Utillity/functions'
+import useLocalStorage from './hooks/useLocalStorage'
 
 
 function App() {
@@ -16,12 +17,14 @@ function App() {
     const [detailedCountry, setDetailedCountry] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
-    const [searchOptions, setSearchOptions] = useState({
-      sortCriterium: 'name',
-      sortDirection: '+',
-      filterCountry: '',
-      filterRegion: 'all',
-    })
+    const [searchOptions, setSearchOptions] = useLocalStorage('searchOptions')
+
+    // const [searchOptions, setSearchOptions] = useState({
+    //   sortCriterium: 'name',
+    //   sortDirection: '+',
+    //   filterCountry: '',
+    //   filterRegion: 'all',
+    // })
 
 
 

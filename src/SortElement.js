@@ -6,7 +6,14 @@ const SortElement = ({ searchOptions, setSearchOptions }) => {
     const {theme} = useContext(ThemeContext)
 
     return(
-        <select className="option-input | bkg-elements f-w-300 box-shadow" name="sort" id="sort" defaultValue={{sortCriterium:searchOptions.sortCriterium, sortDirection:searchOptions.sortDirection}} onChange={setSortClick} style={{backgroundColor: theme.backgroundElements, color:theme.color}}>
+        <select 
+            className="option-input | bkg-elements f-w-300 box-shadow" 
+            name="sort" 
+            id="sort" 
+            value={searchOptions.sortCriterium + '_' + searchOptions.sortDirection} 
+            onChange={setSortClick} 
+            style={{backgroundColor: theme.backgroundElements, color:theme.color}}
+        >
             <option value='name_+'>name, rising</option>
             <option value='name_-'>name, sinking</option>
             <option value='population_+'>population, rising</option>
