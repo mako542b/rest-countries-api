@@ -119,13 +119,20 @@ body {
 
 .search-page {
   position: relative;
+  display:grid;
   /* padding-inline:4rem; */
   padding-bottom: 3rem;
   min-height:100%;
 }
 
+.close-options-button {
+  position:absolute;
+  right: 1rem;
+}
+
 .region-form {
   display:flex;
+  align-items: center;
   justify-content: space-between;
   /* padding-block:2.5rem; */
 }
@@ -294,11 +301,21 @@ body {
   width: 150px;
 }
 
+.display-button {
+  position: sticky;
+  /* justify-self: end; */
+  width:fit-content;
+  margin-left:auto;
+  right:0;
+  top: 0;
+  z-index: 100;
+}
+
 .search-form {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: hsl(0, 0%, 98%);
+  /* background-color: hsl(0, 0%, 98%); */
   padding: 1rem;
   margin-bottom: 2.5rem;
   padding-inline: 3rem;
